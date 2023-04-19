@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishtank 4chan</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/alt/video-js-cdn.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.10.2/video.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/3.0.2/videojs-contrib-hls.js"></script>
+
+<!-- I like Jquery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<style>
+
+* {
+  transition: all .2s ease-out;
+}
+
+    .videos{
+        display: none;
+        flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f1f1f1;
+    }
+
+    .hidden{
+        display: none!important;
+    }
+
+    .unhidden{
+        display: flex!important;
+    }
+
+    @media screen and (max-width: 768px) {
+  .video-item {
+    flex-basis: calc(33.33% - 10px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .video-item {
+    flex-basis: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .video-item {
+    flex-basis: 100%;
+  }
+}
+
+.video-item {
+  flex-basis: calc(25% - 10px);
+  flex-grow: 1;
+  max-width: 100%;
+  height: 300px;
+}
+
+#chatContainer{
+    height: 500px;
+}
+
+.sidebar{
+    width: 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 9999;
+}
+
+.selected{
+    width: 500px;
+}
+
+.scoot{
+    margin-right: 500px;
+}
+
+.chatBtn{
+    position: fixed;
+    right: 5px;
+    top: 4px;
+    z-index: 999999;
+}
+
+.muteBtn{
+    position: fixed;
+    right: 200px;
+    top: 4px;
+    z-index: 999999;
+}
+
+.unmuteBtn{
+    position: fixed;
+    right: 107px;
+    top: 4px;
+    z-index: 999999;
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+    <input type="button" id="btn" value="Start the show">
+    
+
+<br><br>
+
+<div class="videos">
+
+<video id="cam1" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam2" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam3" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam4" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam5" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam6" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam7" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam8" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam9" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+<video id="cam10" class="video-js vjs-default-skin video-item" preload="none" crossorigin="true" controls>
+</video>
+
+
+</div>
+
+<div class="sidebar"><script id="cid0020000342883435447" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 100%;height: 100%;">{"handle":"fishtank-4chan","arch":"js","styles":{"a":"ffcc00","b":100,"c":"000000","d":"000000","k":"ffcc00","l":"ffcc00","m":"ffcc00","p":"10","q":"ffcc00","r":100,"fwtickm":1}}</script></div>
+
+
+<button class="chatBtn">Chat Toggle</button>
+<button class="muteBtn">Mute All</button>
+<button class="unmuteBtn">Unmute All</button>
+
+<!-- code stuff here -->
+    <script>
+        $(document).ready(function() {
+            //for some reason when I used normal js instead of jquery here stuff started breaking so now you get a monsterous hybrid of jquery and ecmascript 9
+  $("#btn").on("click", function() {
+
+    document.querySelector('#btn').classList.add("hidden");
+    document.querySelector('.videos').classList.add("unhidden");
+
+    $("#cam1").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-1/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply1 = videojs("cam1");
+    ply1.play();
+    
+    $("#cam2").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-2/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply2 = videojs("cam2");
+    ply2.play();
+
+    $("#cam3").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-3/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply3 = videojs("cam3");
+    ply3.play();
+
+    $("#cam4").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-4/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply4 = videojs("cam4");
+    ply4.play();
+
+    $("#cam5").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/living-room/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply5 = videojs("cam5");
+    ply5.play();
+
+    $("#cam6").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/kitchen/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply6 = videojs("cam6");
+    ply6.play();
+
+    $("#cam7").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/laundry-room/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply7 = videojs("cam7");
+    ply7.play();
+
+    $("#cam8").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/garage/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply8 = videojs("cam8");
+    ply8.play();
+
+    $("#cam9").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/hallway-upstairs/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply9 = videojs("cam9");
+    ply9.play();
+
+    $("#cam10").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/hallway-downstairs/chunks.m3u8' type='application/x-mpegURL'>");
+    var ply10 = videojs("cam10");
+    ply10.play();
+    
+    document.querySelectorAll('video').forEach( videoz => {
+  videoz.volume=0
+});
+    
+  });
+
+  document.querySelector('.chatBtn').addEventListener('click', () => {
+  document.querySelector('.sidebar').classList.toggle('selected');
+  document.querySelector('.videos').classList.toggle('scoot');
+
+});
+
+document.querySelector('.muteBtn').addEventListener('click', () => {
+    document.querySelectorAll('video').forEach( videoz => {
+  videoz.volume=0
+});
+});
+
+document.querySelector('.unmuteBtn').addEventListener('click', () => {
+    document.querySelectorAll('video').forEach( videoz => {
+  videoz.volume=1
+});
+});
+
+
+
+
+
+
+
+});
+    </script>
+</body>
+</html>
