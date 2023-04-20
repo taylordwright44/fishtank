@@ -12,6 +12,8 @@
 
 <!-- I like Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
 <style>
 
 * {
@@ -169,6 +171,11 @@ button{
 
 <!-- code stuff here -->
     <script>
+
+        //if the URL changes, use this.
+        const url = 'https://d3a4nqgl3a0j37.cloudfront.net'
+
+
         $(document).ready(function() {
             //for some reason when I used normal js instead of jquery here stuff started breaking so now you get a monsterous hybrid of jquery and ecmascript 9
   $("#btn").on("click", function() {
@@ -176,50 +183,56 @@ button{
     document.querySelector('#btn').classList.add("hidden");
     document.querySelector('.videos').classList.add("unhidden");
 
-    $("#cam1").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-1/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam1").html(`<source src='${url}/live/bedroom-1/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply1 = videojs("cam1");
     ply1.play();
     
-    $("#cam2").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-2/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam2").html(`<source src='${url}/live/bedroom-2/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply2 = videojs("cam2");
     ply2.play();
 
-    $("#cam3").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-3/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam3").html(`<source src='${url}/live/bedroom-3/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply3 = videojs("cam3");
     ply3.play();
 
-    $("#cam4").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/bedroom-4/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam4").html(`<source src='${url}/live/bedroom-4/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply4 = videojs("cam4");
     ply4.play();
 
-    $("#cam5").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/living-room/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam5").html(`<source src='${url}/live/living-room/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply5 = videojs("cam5");
     ply5.play();
 
-    $("#cam6").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/kitchen/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam6").html(`<source src='${url}/live/kitchen/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply6 = videojs("cam6");
     ply6.play();
 
-    $("#cam7").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/laundry-room/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam7").html(`<source src='${url}/live/laundry-room/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply7 = videojs("cam7");
     ply7.play();
 
-    $("#cam8").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/garage/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam8").html(`<source src='${url}/live/garage/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply8 = videojs("cam8");
     ply8.play();
 
-    $("#cam9").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/hallway-upstairs/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam9").html(`<source src='${url}/live/hallway-upstairs/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply9 = videojs("cam9");
     ply9.play();
 
-    $("#cam10").html("<source src='https://d27j2syygqshcy.cloudfront.net/live/hallway-downstairs/chunks.m3u8' type='application/x-mpegURL'>");
+    $("#cam10").html(`<source src='${url}/live/hallway-downstairs/chunks.m3u8' type='application/x-mpegURL'>`);
     var ply10 = videojs("cam10");
     ply10.play();
     
     document.querySelectorAll('video').forEach( videoz => {
   videoz.volume=0;
 
-  
+  document.querySelectorAll('.video-item').forEach( vid => {
+
+$( "#" + vid.id ).draggable({containment: ".videos"}).resizable({
+containment: ".videos"
+});
+
+});
 
 });
     
