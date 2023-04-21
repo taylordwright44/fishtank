@@ -12,8 +12,8 @@
 
 <!-- I like Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css"> -->
 <style>
 
 * {
@@ -226,13 +226,15 @@ button{
     document.querySelectorAll('video').forEach( videoz => {
   videoz.volume=0;
 
-  document.querySelectorAll('.video-item').forEach( vid => {
 
-$( "#" + vid.id ).draggable({containment: ".videos"}).resizable({
-containment: ".videos"
-});
+  //DRAGGABLE AND RESIZABLE VIDEO - Don't add this back in, it failed and made sound resize the videos.
+//   document.querySelectorAll('.video-item').forEach( vid => {
 
-});
+// $( "#" + vid.id ).draggable({containment: ".videos"}).resizable({
+// containment: ".videos"
+// });
+
+// });
 
 });
     
